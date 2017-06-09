@@ -1,4 +1,15 @@
-## Inicio
+# API BASE SYMFONY
+
+This is a fork of [https://api-platform.com/](https://api-platform.com/ "API platform"). Is for personal use, and including
+- Configuration basic of api platform
+- Integrate a JWT 
+
+Remember, is for PHP >= 7.0
+
+## BEGIN
+```sh 
+bin/console server:start
+``` 
 http://localhost:8000/docs
 
 ## Cambiar llaves de JWT
