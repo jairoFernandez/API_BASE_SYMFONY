@@ -1,14 +1,14 @@
 {
-    "name": "api-platform/api-platform",
+    "name": "api-base/api-base",
     "license": "MIT",
     "type": "project",
-    "description": "The API Platform framework",
+    "description": "API forked of api-platform/api-platform",
     "homepage": "https://api-platform.com",
     "authors": [
         {
-            "name": "Kévin Dunglas",
-            "email": "dunglas@gmail.com",
-            "homepage": "https://dunglas.fr"
+            "name": "Jairo Fernández",
+            "email": "jairofdezvega@gmail.com",
+            "homepage": "https://codefull.xyz"
         }
     ],
     "autoload": {
