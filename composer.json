@@ -1,5 +1,5 @@
 {
-    "name": "api/base-symfony",
+    "name": "api-jairo/base-symfony",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "license": "MIT",
