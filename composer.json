@@ -1,5 +1,5 @@
 {
-    "name": "api-base/api-base",
+    "name": "api-base-symfony/api-base-symfony",
     "license": "MIT",
     "type": "project",
     "description": "API forked of api-platform/api-platform",
