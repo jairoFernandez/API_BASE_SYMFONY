@@ -1,5 +1,9 @@
 # API BASE SYMFONY
 
+```sh 
+composer create-project api-base-symfony/api-base-symfony apibasico -s dev
+``` 
+
 This is a fork of [https://api-platform.com/](https://api-platform.com/ "API platform"). Is for personal use, and including
 - Configuration basic of api platform
 - Integrate a JWT 
