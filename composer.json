@@ -36,7 +36,8 @@
         "nelmio/cors-bundle": "^1.4",
         "phpdocumentor/reflection-docblock": "^3.0",
         "friendsofsymfony/user-bundle": "^2.0",
-        "nelmio/api-doc-bundle": "^2.13"
+        "nelmio/api-doc-bundle": "^2.13",
+        "doctrine/doctrine-migrations-bundle": "^1.0"
     },
     "require-dev": {
         "api-platform/schema-generator": "^1.2",
