@@ -15,3 +15,7 @@
 /vendor/
 /web/bundles/
 *.pem
+/.idea
+/.idea/*
+/.vscode
+/.vscode/*
