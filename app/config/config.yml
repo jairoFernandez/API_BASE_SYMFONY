@@ -207,3 +207,9 @@ nelmio_api_doc:
         request_format:
             formats:
                 json:       'application/json'    
+
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
