@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Visit
- * @ApiResource(attributes={"filters"={"visit.search"}})
+ * @ApiResource(attributes={"filters"={"regexp"}})
  * @ORM\Table(name="visit")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VisitRepository")
  */

@@ -8,8 +8,17 @@ api:
     prefix:   '/api'
 
 app:
-    resource: '@AppBundle/Action/'
+    resource: '@AppBundle/Controller/'
     type:     'annotation'
+
+
+book_special:
+    path: '/productsjairo/{id}/special'
+    methods:  ['GET']
+    defaults:
+        _controller: 'AppBundle:Products:special'
+        _api_resource_class: 'AppBundle\Entity\Product'
+        _api_item_operation_name: 'special'
 
 api_login_check:
     path: /api/login_check

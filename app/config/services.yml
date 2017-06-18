@@ -8,3 +8,8 @@ services:
         parent:    'api_platform.doctrine.orm.search_filter'
         arguments: [ { id: 'exact', number: 'exact', descripcion: 'partial' } ]
         tags:      [ { name: 'api_platform.filter', id: 'visit.search' } ]
+
+    regexp.filter:
+        class: 'AppBundle\Filter\RegexpFilter'
+        autowire: true # See the next example for a plain old definition
+        tags: [ { name: 'api_platform.filter', id: 'regexp' } ]

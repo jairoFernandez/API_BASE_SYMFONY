@@ -7,7 +7,7 @@
 This is a fork of [https://api-platform.com/](https://api-platform.com/ "API platform"). Is for personal use, and including
 - Configuration basic of api platform
 - Integrate a JWT 
-- Doctrine migrations
+- Doctrine migrations, fixtures and extensions.
 - JMose scheduler for cron jobs
 - Email with spool command!
 
@@ -54,3 +54,98 @@ curl -X POST http://localhost:8000/api/login_check -d _username=johndoe -d _pass
 ## Header
 In each request add this header
 Authorization: Bearer tokenJWT 
+
+## Add more controllers
+##### First option
+Routes with yml in app/config/routing.yml
+```sh
+# app/config/routing.yml
+book_special:
+    path: '/productsjairo/{id}/special'
+    methods:  ['GET']
+    defaults:
+        _controller: 'AppBundle:Products:special'
+        _api_resource_class: 'AppBundle\Entity\Product'
+        _api_item_operation_name: 'special'
+```
+
+##### Second option
+Router with annotations in each action of a controller
+
+```sh
+# In a controller
+ /**
+     * Example with annotations
+     * @Route(
+     *     name="demo_special",
+     *     path="/demo/{id}/special",
+     *     defaults={"_api_resource_class"=Product::class, "_api_item_operation_name"="specialdemo"}
+     * )
+     * @Method("GET")
+     */
+    public function demoAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $products = $em->getRepository(Product::class)->findAll();
+        return $products;
+    }
+
+```
+
+## Subscribe events for modify request
+
+In src/AppBundle/EventSubscriber add a file name ProductMailSubscriber.php
+```sh
+
+<?php
+
+// other uses
+use Doctrine\ORM\EntityManager;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+
+final class ProductMailSubscriber implements EventSubscriberInterface
+{
+    private $mailer;
+    private $em;
+    protected $authorizationChecker;
+    protected $token;
+
+    public function __construct(\Swift_Mailer $mailer, EntityManager $em, AuthorizationCheckerInterface $authorizationChecker, \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage $token_storage)
+    {
+        // Initilize vars!!!
+    }
+
+     public static function getSubscribedEvents()
+    {
+        return [
+            //KernelEvents::VIEW => [['sendMail', EventPriorities::POST_WRITE]],
+            KernelEvents::VIEW => [['accionDemo', EventPriorities::POST_WRITE]]
+        ];
+    }
+
+```
+
+For more events [https://api-platform.com/docs/core/events](https://api-platform.com/docs/core/events)
+
+## Add custom filter
+```sh
+<?php
+
+... other use
+
+/**
+ * Product
+ * @ApiResource(attributes={"filters"={"regexp"}})  /--->>>Add filter regexp
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ */
+class Product
+{
+```
+
+Now in the url you can:
+```sh
+
+../api/products?id=[1,2]&number=20&description=otr
+
+```
