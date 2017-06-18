@@ -14,6 +14,7 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 
 class ProductsController extends Controller
 {
@@ -55,6 +56,11 @@ class ProductsController extends Controller
 
     /**
      * Example with annotations
+     * * @ApiDoc(
+     *  resource=true,
+     *  description="This is a description of your API method",
+     *  views = { "default", "premium" }
+     * )
      * @Route(
      *     name="demo_special",
      *     path="/demo/{id}/special",
