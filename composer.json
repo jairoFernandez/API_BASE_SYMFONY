@@ -39,7 +39,8 @@
         "nelmio/api-doc-bundle": "^2.13",
         "doctrine/doctrine-migrations-bundle": "^1.0",
         "jmose/command-scheduler-bundle": "^1.2",
-        "beberlei/DoctrineExtensions": "^1.0"
+        "beberlei/DoctrineExtensions": "^1.0",
+        "lexik/jwt-authentication-bundle": "^2.4"
     },
     "require-dev": {
         "api-platform/schema-generator": "^1.2",
